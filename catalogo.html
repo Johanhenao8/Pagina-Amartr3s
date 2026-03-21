@@ -142,7 +142,13 @@
             }
 
             .hero-copy {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.8rem;
+                min-height: 24rem;
                 padding: 3rem;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(241, 246, 252, 0.9));
             }
 
             .hero-cover img {
@@ -171,10 +177,11 @@
             }
 
             .hero h1 {
-                margin-bottom: 1rem;
+                margin-bottom: 0.3rem;
                 color: var(--navy);
                 font-size: clamp(2.3rem, 6vw, 4.8rem);
                 line-height: 0.96;
+                max-width: 12ch;
             }
 
             .hero p,
@@ -183,6 +190,17 @@
             .detail-points li {
                 color: #435063;
                 line-height: 1.9;
+            }
+
+            .hero-copy p {
+                margin: 0;
+                max-width: 31rem;
+            }
+
+            .hero-note {
+                color: #5e6878;
+                font-size: 0.95rem;
+                line-height: 1.8;
             }
 
             .hero-actions {
@@ -208,11 +226,6 @@
                 background: transparent;
                 color: var(--navy);
                 border: 1px solid rgba(24, 49, 83, 0.18);
-            }
-
-            .intro-card {
-                padding: 1.8rem;
-                margin-bottom: 1.25rem;
             }
 
             .items-grid {
@@ -261,31 +274,31 @@
             .item-body {
                 position: absolute;
                 inset: auto 0 0 0;
-                padding: 2.8rem 1.2rem 1.15rem 1.2rem;
-                background: linear-gradient(180deg, rgba(8, 16, 30, 0) 0%, rgba(8, 16, 30, 0.74) 52%, rgba(8, 16, 30, 0.94) 100%);
+                padding: 1.5rem 0.95rem 0.75rem 0.95rem;
+                background: linear-gradient(180deg, rgba(8, 16, 30, 0) 38%, rgba(8, 16, 30, 0.2) 62%, rgba(8, 16, 30, 0.74) 100%);
                 text-align: left;
             }
 
             .item-index {
                 display: inline-block;
-                margin-bottom: 0.5rem;
-                color: rgba(198, 221, 250, 0.92);
-                font-size: 0.72rem;
+                margin-bottom: 0.25rem;
+                color: rgba(217, 233, 251, 0.92);
+                font-size: 0.64rem;
                 font-weight: 800;
             }
 
             .item-card h3 {
-                margin-bottom: 0.4rem;
+                margin-bottom: 0.2rem;
                 color: #f7fbff;
-                font-size: 1.02rem;
-                line-height: 1.15;
+                font-size: 0.92rem;
+                line-height: 1.1;
             }
 
             .item-summary {
                 margin: 0;
                 color: rgba(236, 243, 251, 0.9);
-                font-size: 0.92rem;
-                line-height: 1.6;
+                font-size: 0.73rem;
+                line-height: 1.45;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
@@ -293,25 +306,25 @@
             }
 
             .item-actions {
-                display: grid;
-                grid-template-columns: auto minmax(0, 1fr);
-                align-items: start;
-                gap: 0.55rem;
-                padding: 0.9rem 1rem 1rem 1rem;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 0.4rem;
+                padding: 0.55rem 0.7rem 0.7rem 0.7rem;
             }
 
             .item-view {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                min-height: 2.3rem;
-                padding: 0.62rem 0.85rem;
+                min-height: 1.9rem;
+                padding: 0.42rem 0.68rem;
                 border-radius: 999px;
                 border: 1px solid rgba(24, 49, 83, 0.16);
                 background: rgba(24, 49, 83, 0.08);
                 color: var(--navy);
                 font-family: "Source Sans Pro", Helvetica, sans-serif;
-                font-size: 0.67rem;
+                font-size: 0.58rem;
                 font-weight: 800;
                 letter-spacing: 0.06em;
                 text-transform: uppercase;
@@ -325,7 +338,6 @@
             }
 
             .item-details {
-                grid-column: 2;
                 margin-top: 0;
                 border-radius: 20px;
                 background: rgba(24, 49, 83, 0.05);
@@ -338,12 +350,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 0.55rem;
-                min-height: 2.3rem;
-                padding: 0.62rem 0.85rem;
+                gap: 0.45rem;
+                min-height: 1.9rem;
+                padding: 0.42rem 0.68rem;
                 cursor: pointer;
                 color: var(--navy);
-                font-size: 0.67rem;
+                font-size: 0.58rem;
                 font-weight: 900;
                 font-family: "Source Sans Pro", Helvetica, sans-serif;
                 letter-spacing: 0.06em;
@@ -358,14 +370,14 @@
             .item-details summary::after {
                 content: "+";
                 flex-shrink: 0;
-                width: 1.3rem;
-                height: 1.3rem;
+                width: 1rem;
+                height: 1rem;
                 border-radius: 999px;
                 background: rgba(24, 49, 83, 0.1);
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 0.9rem;
+                font-size: 0.72rem;
                 line-height: 1;
             }
 
@@ -374,16 +386,18 @@
             }
 
             .item-details[open] {
-                grid-column: 1 / -1;
+                flex-basis: 100%;
+                border-radius: 16px;
             }
 
             .item-details[open] summary {
                 border-bottom: 1px dashed rgba(24, 49, 83, 0.18);
+                border-radius: 16px 16px 0 0;
             }
 
             .detail-points {
                 margin: 0;
-                padding: 0.85rem 1rem 1rem 2rem;
+                padding: 0.75rem 0.85rem 0.85rem 1.7rem;
             }
 
             .detail-points li {
@@ -517,6 +531,7 @@
 
                 .hero-copy {
                     padding: 2rem;
+                    min-height: auto;
                 }
 
                 .modal-panel {
@@ -554,32 +569,23 @@
                 }
 
                 .item-body {
-                    padding: 2.2rem 1rem 0.95rem 1rem;
+                    padding: 1.2rem 0.85rem 0.65rem 0.85rem;
                 }
 
                 .item-summary {
-                    -webkit-line-clamp: 3;
+                    -webkit-line-clamp: 2;
                 }
 
                 .item-actions {
-                    grid-template-columns: 1fr 1fr;
-                    gap: 0.5rem;
-                    padding: 0.8rem 0.85rem 0.9rem 0.85rem;
+                    gap: 0.32rem;
+                    padding: 0.5rem 0.55rem 0.65rem 0.55rem;
                 }
 
                 .item-view,
                 .item-details summary {
                     justify-content: center;
-                    padding: 0.62rem 0.72rem;
-                    font-size: 0.62rem;
-                }
-
-                .item-details {
-                    grid-column: auto;
-                }
-
-                .item-details[open] {
-                    grid-column: 1 / -1;
+                    padding: 0.38rem 0.55rem;
+                    font-size: 0.54rem;
                 }
 
                 .modal-shell {
@@ -619,6 +625,9 @@
                             <p id="heroText">
                                 Aqui se mostraran todas las piezas de la categoria seleccionada.
                             </p>
+                            <p class="hero-note" id="heroNote">
+                                Cada linea de AMARTR3S organiza sus piezas para que la exploracion sea clara y agradable.
+                            </p>
                             <div class="hero-actions">
                                 <a class="back-link" href="index.html">Volver al inicio</a>
                                 <a class="back-link secondary" href="#articulos">Ver articulos</a>
@@ -627,15 +636,6 @@
                         <div class="hero-cover">
                             <img id="heroImage" src="images/Logo/AMARTR3S.png" alt="Portada del catalogo" />
                         </div>
-                    </section>
-
-                    <section class="intro-card">
-                        <span class="section-tag">Detalle por articulo</span>
-                        <h2 id="introTitle" style="margin-bottom: 0.8rem; color: var(--navy);">Coleccion completa</h2>
-                        <p id="introText">
-                            Cada producto presenta una vista mas ligera y te permite desplegar
-                            sus detalles solo cuando quieras revisar mas informacion.
-                        </p>
                     </section>
 
                     <section id="articulos" class="items-grid"></section>
@@ -688,13 +688,12 @@
 
             document.title = "AMARTR3S | " + activeCatalog.title;
             document.getElementById("heroTag").textContent = activeCatalog.tag;
-            document.getElementById("heroTitle").textContent = activeCatalog.title;
-            document.getElementById("heroText").textContent = activeCatalog.description;
-            document.getElementById("introTitle").textContent = activeCatalog.title + " | Coleccion completa";
-            document.getElementById("introText").textContent =
+            document.getElementById("heroTitle").textContent = activeCatalog.title + " | Coleccion completa";
+            document.getElementById("heroText").textContent =
                 "Esta categoria incluye " +
                 activeCatalog.items.length +
-                " productos con vista rapida y detalles desplegables para una navegacion mas fluida.";
+                " productos con vista rapida, detalles opcionales y una lectura mas limpia.";
+            document.getElementById("heroNote").textContent = activeCatalog.description;
             document.getElementById("heroImage").src = activeCatalog.cover;
             document.getElementById("heroImage").alt = "Portada " + activeCatalog.title;
 
@@ -772,9 +771,9 @@
                     "</div>" +
                     "</div>" +
                     '<div class="item-actions">' +
-                    '<button class="item-view" type="button">Ampliar imagen</button>' +
+                    '<button class="item-view" type="button">Ampliar</button>' +
                     '<details class="item-details">' +
-                    "<summary>Ver detalles</summary>" +
+                    "<summary>Detalles</summary>" +
                     '<ul class="detail-points">' +
                     "<li>" +
                     item.materials +

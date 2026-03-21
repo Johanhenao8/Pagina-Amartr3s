@@ -251,6 +251,7 @@
                 cursor: zoom-in;
                 overflow: hidden;
                 text-align: left;
+                touch-action: pan-y;
             }
 
             .item-media:focus-visible {
@@ -274,8 +275,8 @@
             .item-body {
                 position: absolute;
                 inset: auto 0 0 0;
-                padding: 1.5rem 0.95rem 0.75rem 0.95rem;
-                background: linear-gradient(180deg, rgba(8, 16, 30, 0) 38%, rgba(8, 16, 30, 0.2) 62%, rgba(8, 16, 30, 0.74) 100%);
+                padding: 1.1rem 0.95rem 0.65rem 0.95rem;
+                background: linear-gradient(180deg, rgba(8, 16, 30, 0) 48%, rgba(8, 16, 30, 0.14) 72%, rgba(8, 16, 30, 0.6) 100%);
                 text-align: left;
             }
 
@@ -288,7 +289,7 @@
             }
 
             .item-card h3 {
-                margin-bottom: 0.2rem;
+                margin-bottom: 0;
                 color: #f7fbff;
                 font-size: 0.92rem;
                 line-height: 1.1;
@@ -296,9 +297,9 @@
 
             .item-summary {
                 margin: 0;
-                color: rgba(236, 243, 251, 0.9);
-                font-size: 0.73rem;
-                line-height: 1.45;
+                color: #4f6380;
+                font-size: 0.74rem;
+                line-height: 1.55;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
@@ -306,8 +307,8 @@
             }
 
             .item-actions {
-                display: flex;
-                flex-wrap: wrap;
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) auto auto;
                 align-items: center;
                 gap: 0.4rem;
                 padding: 0.55rem 0.7rem 0.7rem 0.7rem;
@@ -320,8 +321,8 @@
                 min-height: 1.9rem;
                 padding: 0.42rem 0.68rem;
                 border-radius: 999px;
-                border: 1px solid rgba(24, 49, 83, 0.16);
-                background: rgba(24, 49, 83, 0.08);
+                border: 1px dashed rgba(24, 49, 83, 0.18);
+                background: rgba(255, 255, 255, 0.76);
                 color: var(--navy);
                 font-family: "Source Sans Pro", Helvetica, sans-serif;
                 font-size: 0.58rem;
@@ -330,6 +331,7 @@
                 text-transform: uppercase;
                 cursor: pointer;
                 white-space: nowrap;
+                justify-self: end;
             }
 
             .item-view:hover,
@@ -338,9 +340,10 @@
             }
 
             .item-details {
+                justify-self: end;
                 margin-top: 0;
-                border-radius: 20px;
-                background: rgba(24, 49, 83, 0.05);
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.76);
                 border: 1px dashed rgba(24, 49, 83, 0.18);
                 overflow: hidden;
                 min-width: 0;
@@ -386,8 +389,9 @@
             }
 
             .item-details[open] {
-                flex-basis: 100%;
+                grid-column: 1 / -1;
                 border-radius: 16px;
+                justify-self: stretch;
             }
 
             .item-details[open] summary {
@@ -569,7 +573,7 @@
                 }
 
                 .item-body {
-                    padding: 1.2rem 0.85rem 0.65rem 0.85rem;
+                    padding: 0.95rem 0.8rem 0.55rem 0.8rem;
                 }
 
                 .item-summary {
@@ -577,7 +581,7 @@
                 }
 
                 .item-actions {
-                    gap: 0.32rem;
+                    gap: 0.28rem;
                     padding: 0.5rem 0.55rem 0.65rem 0.55rem;
                 }
 
@@ -709,6 +713,7 @@
             var modalCustomization = document.getElementById("modalCustomization");
             var modalNote = document.getElementById("modalNote");
             var modalCopy = document.querySelector(".modal-copy");
+            var modalPanel = document.querySelector(".modal-panel");
             var lockedScrollY = 0;
 
             function openModal(item, index) {
@@ -765,12 +770,12 @@
                     "<h3>" +
                     item.name +
                     "</h3>" +
-                    '<p class="item-summary">' +
-                    item.summary +
-                    "</p>" +
                     "</div>" +
                     "</div>" +
                     '<div class="item-actions">' +
+                    '<p class="item-summary">' +
+                    item.summary +
+                    "</p>" +
                     '<button class="item-view" type="button">Ampliar</button>' +
                     '<details class="item-details">' +
                     "<summary>Detalles</summary>" +
@@ -816,6 +821,24 @@
                     closeModal();
                 }
             });
+
+            modal.addEventListener(
+                "touchmove",
+                function (event) {
+                    if (event.target === modal) {
+                        event.preventDefault();
+                    }
+                },
+                { passive: false }
+            );
+
+            modalPanel.addEventListener(
+                "touchmove",
+                function (event) {
+                    event.stopPropagation();
+                },
+                { passive: true }
+            );
 
             document.addEventListener("keydown", function (event) {
                 if (event.key === "Escape" && modal.classList.contains("active")) {

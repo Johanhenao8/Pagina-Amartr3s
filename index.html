@@ -101,13 +101,14 @@
             }
 
             .brand img {
-                width: 3rem;
-                height: 3rem;
+                width: 3.75rem;
+                height: 3.75rem;
                 object-fit: contain;
                 border-radius: 999px;
-                background: rgba(255, 255, 255, 0.78);
-                padding: 0.35rem;
-                box-shadow: 0 8px 24px rgba(24, 49, 83, 0.15);
+                background: rgba(255, 255, 255, 0.94);
+                padding: 0.45rem;
+                border: 1px solid rgba(24, 49, 83, 0.14);
+                box-shadow: 0 12px 28px rgba(24, 49, 83, 0.2);
             }
 
             .nav-links {
@@ -193,19 +194,37 @@
 
             .pill {
                 display: block;
-                padding: 0.9rem 1rem;
-                border: 1px solid rgba(24, 49, 83, 0.12);
+                padding: 1rem 1.05rem;
+                border: 1px solid rgba(24, 49, 83, 0.22);
                 border-radius: 20px;
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(230, 239, 250, 0.82));
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(226, 237, 250, 0.92));
                 color: var(--forest);
                 font-size: 0.75rem;
                 font-weight: 700;
                 line-height: 1.5;
+                box-shadow:
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
+                    0 14px 26px rgba(24, 49, 83, 0.08);
             }
 
             .pill:hover {
                 transform: translateY(-3px);
                 box-shadow: 0 14px 28px rgba(24, 49, 83, 0.12);
+            }
+
+            .pill-title {
+                display: block;
+                margin-bottom: 0.2rem;
+                color: var(--forest);
+                font-size: 1rem;
+                font-weight: 900;
+            }
+
+            .pill-copy {
+                display: block;
+                color: #4d6280;
+                font-size: 0.68rem;
+                line-height: 1.55;
             }
 
             .hero-actions {
@@ -291,6 +310,10 @@
 
             .line-card {
                 overflow: hidden;
+                border: 1px solid rgba(24, 49, 83, 0.18);
+                box-shadow:
+                    0 24px 48px rgba(24, 49, 83, 0.12),
+                    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
             }
 
             .line-link,
@@ -442,11 +465,50 @@
                 color: #5f5347;
             }
 
+            .split-panel {
+                display: grid;
+                gap: 0.85rem;
+                margin-top: 0.15rem;
+            }
+
+            .split-note {
+                padding: 1rem 1rem 1.05rem 1rem;
+                border-radius: 22px;
+                border: 1px solid rgba(24, 49, 83, 0.14);
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 245, 252, 0.9));
+            }
+
+            .split-note.vision {
+                border-color: rgba(77, 117, 163, 0.24);
+                background: linear-gradient(180deg, rgba(232, 241, 251, 0.96), rgba(223, 235, 250, 0.92));
+            }
+
+            .split-note h4 {
+                margin-bottom: 0.45rem;
+                color: var(--forest);
+                font-size: 0.84rem;
+                font-weight: 900;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+
+            .split-note p {
+                margin: 0;
+                color: #4b607b;
+                line-height: 1.82;
+            }
+
             .footer-note {
                 padding-top: 1rem;
                 color: rgba(31, 29, 26, 0.58);
                 text-align: center;
                 font-size: 0.9rem;
+            }
+
+            .footer-actions {
+                display: flex;
+                justify-content: center;
+                margin-top: 1rem;
             }
 
             @media screen and (max-width: 980px) {
@@ -526,9 +588,18 @@
                                 mirada artesanal en tres categorias principales.
                             </p>
                             <div class="hero-points">
-                                <a class="pill" href="catalogo.html?categoria=reciclarte">ReciclArte con economia circular y piezas sostenibles</a>
-                                <a class="pill" href="catalogo.html?categoria=personalizada">Linea personalizada para regalos y fechas especiales</a>
-                                <a class="pill" href="catalogo.html?categoria=religiosa">Inspiracion religiosa con valor simbolico y espiritual</a>
+                                <a class="pill" href="catalogo.html?categoria=reciclarte">
+                                    <span class="pill-title">ReciclArte</span>
+                                    <span class="pill-copy">economia circular y piezas sostenibles</span>
+                                </a>
+                                <a class="pill" href="catalogo.html?categoria=personalizada">
+                                    <span class="pill-title">Personalizada</span>
+                                    <span class="pill-copy">regalos, fechas especiales y detalles unicos</span>
+                                </a>
+                                <a class="pill" href="catalogo.html?categoria=religiosa">
+                                    <span class="pill-title">Religiosa</span>
+                                    <span class="pill-copy">inspiracion simbolica y espiritual</span>
+                                </a>
                             </div>
                             <div class="hero-actions">
                                 <a class="cta primary" href="#lineas">Ver lineas</a>
@@ -553,13 +624,24 @@
                         <article class="panel">
                             <span class="section-tag">Mision y vision</span>
                             <h3>Mision y vision</h3>
-                            <p>
-                                Mision: desarrollar iniciativas creativas y sostenibles que generen
-                                impacto social, cultural y ambiental, integrando arte, innovacion y
-                                participacion comunitaria como herramientas de transformacion
-                                territorial. Vision: consolidarse como referente en innovacion
-                                creativa y sostenibilidad a nivel local, nacional e internacional.
-                            </p>
+                            <div class="split-panel">
+                                <div class="split-note">
+                                    <h4>Mision</h4>
+                                    <p>
+                                        Desarrollar iniciativas creativas y sostenibles que generen
+                                        impacto social, cultural y ambiental, integrando arte,
+                                        innovacion y participacion comunitaria como herramientas de
+                                        transformacion territorial.
+                                    </p>
+                                </div>
+                                <div class="split-note vision">
+                                    <h4>Vision</h4>
+                                    <p>
+                                        Consolidarse como referente en innovacion creativa y
+                                        sostenibilidad a nivel local, nacional e internacional.
+                                    </p>
+                                </div>
+                            </div>
                         </article>
                         <article class="panel">
                             <span class="section-tag">Propuesta</span>
@@ -742,6 +824,9 @@
                     </section>
                 </main>
 
+                <div class="footer-actions">
+                    <a class="cta secondary" href="#inicio">Volver al inicio</a>
+                </div>
                 <div class="footer-note">
                     AMARTR3S | Catalogo digital listo para publicacion
                 </div>

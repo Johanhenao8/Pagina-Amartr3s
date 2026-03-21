@@ -1,0 +1,771 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>AMARTR3S</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta
+            name="description"
+            content="AMARTR3S crea detalles personalizados, decoracion reciclada y articulos con inspiracion religiosa."
+        />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            :root {
+                --cream: #f7f1e8;
+                --sand: #dde6f2;
+                --earth: #41597a;
+                --forest: #183153;
+                --olive: #4d75a3;
+                --ink: #1f1d1a;
+                --muted: #6c665d;
+                --card: rgba(255, 255, 255, 0.82);
+                --line: rgba(24, 49, 83, 0.16);
+                --shadow: 0 24px 60px rgba(31, 29, 26, 0.14);
+                --radius: 28px;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                background:
+                    radial-gradient(circle at top left, rgba(65, 89, 122, 0.2), transparent 28%),
+                    radial-gradient(circle at right 20%, rgba(77, 117, 163, 0.16), transparent 26%),
+                    linear-gradient(180deg, #eef3f9 0%, #e5edf8 100%);
+                color: var(--ink);
+            }
+
+            body,
+            input,
+            textarea {
+                font-family: "Merriweather", Georgia, serif;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            .brand,
+            .nav-links a,
+            .pill,
+            .cta,
+            .contact-chip,
+            .section-tag {
+                font-family: "Source Sans Pro", Helvetica, sans-serif;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+            }
+
+            a {
+                border-bottom: 0;
+            }
+
+            p {
+                text-align: left;
+            }
+
+            #wrapper {
+                background: transparent;
+            }
+
+            .site-shell {
+                width: min(1120px, calc(100% - 2.4rem));
+                margin: 0 auto;
+                padding: 1.2rem 0 4rem 0;
+            }
+
+            .topbar {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 0.9rem 1.2rem;
+                margin-bottom: 1.2rem;
+                background: rgba(255, 255, 255, 0.62);
+                border: 1px solid rgba(24, 49, 83, 0.12);
+                border-radius: 999px;
+                backdrop-filter: blur(12px);
+                box-shadow: 0 12px 30px rgba(24, 49, 83, 0.08);
+            }
+
+            .brand {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.8rem;
+                color: var(--forest);
+                font-size: 1rem;
+                font-weight: 900;
+            }
+
+            .brand img {
+                width: 3rem;
+                height: 3rem;
+                object-fit: contain;
+                border-radius: 999px;
+                background: rgba(255, 255, 255, 0.78);
+                padding: 0.35rem;
+                box-shadow: 0 8px 24px rgba(24, 49, 83, 0.15);
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            .nav-links a {
+                color: var(--muted);
+                font-size: 0.82rem;
+                font-weight: 700;
+            }
+
+            .nav-links a:hover,
+            .nav-links a:focus {
+                color: var(--forest);
+            }
+
+            .hero {
+                display: grid;
+                grid-template-columns: 1.1fr 0.9fr;
+                gap: 1.5rem;
+                align-items: stretch;
+                margin-bottom: 1.6rem;
+            }
+
+            .hero-copy,
+            .hero-photo,
+            .panel,
+            .line-card,
+            .gallery-card,
+            .contact-panel {
+                background: var(--card);
+                border: 1px solid rgba(24, 49, 83, 0.12);
+                border-radius: var(--radius);
+                box-shadow: var(--shadow);
+            }
+
+            .hero-copy {
+                padding: 3rem;
+            }
+
+            .section-tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 1.2rem;
+                color: var(--olive);
+                font-size: 0.78rem;
+                font-weight: 700;
+            }
+
+            .section-tag:before {
+                content: "";
+                width: 2.8rem;
+                height: 1px;
+                background: rgba(77, 117, 163, 0.45);
+            }
+
+            .hero h1 {
+                margin-bottom: 1rem;
+                font-size: clamp(2.8rem, 7vw, 5.8rem);
+                line-height: 0.95;
+                color: var(--forest);
+            }
+
+            .hero-lead {
+                max-width: 36rem;
+                margin-bottom: 1.2rem;
+                font-size: 1.05rem;
+                line-height: 1.95;
+                color: #44566f;
+            }
+
+            .hero-points {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.8rem;
+                margin: 1.5rem 0;
+            }
+
+            .pill {
+                display: block;
+                padding: 0.9rem 1rem;
+                border: 1px solid rgba(24, 49, 83, 0.12);
+                border-radius: 20px;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(230, 239, 250, 0.82));
+                color: var(--forest);
+                font-size: 0.75rem;
+                font-weight: 700;
+                line-height: 1.5;
+            }
+
+            .pill:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 14px 28px rgba(24, 49, 83, 0.12);
+            }
+
+            .hero-actions {
+                display: flex;
+                gap: 0.9rem;
+                flex-wrap: wrap;
+                margin-top: 1.8rem;
+            }
+
+            .cta {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 12rem;
+                padding: 1rem 1.35rem;
+                border-radius: 999px;
+                font-size: 0.82rem;
+                font-weight: 800;
+            }
+
+            .cta.primary {
+                background: var(--forest);
+                color: #f8f5ef;
+            }
+
+            .cta.secondary {
+                background: transparent;
+                color: var(--forest);
+                border: 1px solid rgba(24, 49, 83, 0.2);
+            }
+
+            .hero-photo {
+                min-height: 100%;
+                overflow: hidden;
+            }
+
+            .hero-photo img {
+                width: 100%;
+                height: 100%;
+                min-height: 28rem;
+                object-fit: cover;
+                display: block;
+            }
+
+            .panel-grid,
+            .lines-grid,
+            .album-grid,
+            .contact-grid {
+                display: grid;
+                gap: 1.2rem;
+                margin-bottom: 1.2rem;
+            }
+
+            .panel-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .panel {
+                padding: 1.7rem;
+            }
+
+            .panel h3,
+            .line-card h3,
+            .gallery-card h3,
+            .contact-panel h3 {
+                margin-bottom: 0.85rem;
+                color: var(--forest);
+                font-size: 1rem;
+            }
+
+            .panel p,
+            .line-card p,
+            .gallery-card p,
+            .contact-panel p {
+                margin: 0;
+                color: #4f473f;
+                line-height: 1.9;
+            }
+
+            .lines-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .line-card {
+                overflow: hidden;
+            }
+
+            .line-link,
+            .album-link {
+                display: block;
+                color: inherit;
+            }
+
+            .line-link:hover,
+            .album-link:hover {
+                transform: translateY(-4px);
+            }
+
+            .line-card img {
+                width: 100%;
+                height: 18rem;
+                object-fit: cover;
+                display: block;
+            }
+
+            .line-body,
+            .gallery-body,
+            .contact-body {
+                padding: 1.8rem;
+            }
+
+            .card-cta {
+                margin-top: 1rem;
+                color: var(--olive);
+                font-size: 0.82rem;
+                font-weight: 800;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+            }
+
+            .line-list {
+                margin: 1rem 0 0 0;
+                padding-left: 1.1rem;
+                color: #4f473f;
+            }
+
+            .line-list li {
+                margin-bottom: 0.5rem;
+            }
+
+            .album-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .album-card {
+                overflow: hidden;
+                padding: 0;
+                background:
+                    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 241, 250, 0.92));
+            }
+
+            .album-cover {
+                position: relative;
+                padding: 1rem 1rem 0 1rem;
+            }
+
+            .album-cover:after {
+                content: "";
+                position: absolute;
+                inset: 1rem 1rem 0 1rem;
+                background: linear-gradient(180deg, transparent 42%, rgba(14, 28, 52, 0.42) 100%);
+                border-radius: 26px;
+                pointer-events: none;
+            }
+
+            .album-cover img {
+                width: 100%;
+                height: 18rem;
+                border-radius: 26px;
+                object-fit: cover;
+                display: block;
+            }
+
+            .album-strip {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 0.65rem;
+                padding: 0 1rem 1rem 1rem;
+                margin-top: -2.2rem;
+                position: relative;
+                z-index: 2;
+            }
+
+            .album-strip img {
+                width: 100%;
+                height: 6.2rem;
+                border-radius: 18px;
+                object-fit: cover;
+                display: block;
+                border: 3px solid rgba(255, 255, 255, 0.92);
+                box-shadow: 0 12px 24px rgba(24, 49, 83, 0.14);
+            }
+
+            .album-count {
+                margin-top: 0.8rem;
+                color: var(--olive);
+                font-size: 0.82rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+            }
+
+            .album-card .gallery-body {
+                padding: 1.5rem 1.5rem 1rem 1.5rem;
+            }
+
+            .album-card h3 {
+                font-size: 1.15rem;
+            }
+
+            .album-card p {
+                color: #4d5d73;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1.1fr 0.9fr;
+            }
+
+            .contact-panel {
+                padding: 0;
+            }
+
+            .contact-body {
+                display: grid;
+                gap: 1rem;
+            }
+
+            .contact-chip {
+                display: inline-flex;
+                align-items: center;
+                padding: 0.95rem 1rem;
+                border-radius: 18px;
+                background: rgba(24, 49, 83, 0.06);
+                color: var(--forest);
+                font-size: 0.78rem;
+                font-weight: 800;
+            }
+
+            .contact-note {
+                padding: 1.4rem 1.6rem;
+                border-radius: 22px;
+                background: rgba(65, 89, 122, 0.08);
+                border: 1px dashed rgba(24, 49, 83, 0.2);
+                color: #5f5347;
+            }
+
+            .footer-note {
+                padding-top: 1rem;
+                color: rgba(31, 29, 26, 0.58);
+                text-align: center;
+                font-size: 0.9rem;
+            }
+
+            @media screen and (max-width: 980px) {
+                .hero,
+                .contact-grid,
+                .lines-grid,
+                .panel-grid,
+                .album-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .hero-copy {
+                    padding: 2rem;
+                }
+
+                .hero-points {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @media screen and (max-width: 640px) {
+                .site-shell {
+                    width: min(100% - 1.2rem, 1120px);
+                }
+
+                .topbar {
+                    border-radius: 26px;
+                    padding: 1rem;
+                    justify-content: center;
+                }
+
+                .nav-links {
+                    justify-content: center;
+                }
+
+                .hero h1 {
+                    font-size: 2.8rem;
+                }
+
+                .hero-photo img,
+                .line-card img,
+                .album-cover img {
+                    height: 13rem;
+                    min-height: 13rem;
+                }
+
+                .album-strip img {
+                    height: 4.8rem;
+                }
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+        <div id="wrapper">
+            <div class="site-shell">
+                <header class="topbar">
+                    <a class="brand" href="#inicio">
+                        <img src="images/Logo/AMARTR3S.png" alt="Logo AMARTR3S" />
+                        <span>AMARTR3S</span>
+                    </a>
+                    <nav class="nav-links">
+                        <a href="#nosotros">Nosotros</a>
+                        <a href="#lineas">Lineas</a>
+                        <a href="#albumes">Albumes</a>
+                        <a href="#contacto">Contacto</a>
+                    </nav>
+                </header>
+
+                <main>
+                    <section class="hero" id="inicio">
+                        <div class="hero-copy">
+                            <span class="section-tag">Detalles con identidad</span>
+                            <h1>AMARTR3S</h1>
+                            <p class="hero-lead">
+                                Creamos piezas con sentido, hechas para regalar, decorar y transmitir
+                                valor. Nuestra propuesta une creatividad, personalizacion y una
+                                mirada artesanal en tres categorias principales.
+                            </p>
+                            <div class="hero-points">
+                                <a class="pill" href="catalogo.html?categoria=reciclarte">ReciclArte con economia circular y piezas sostenibles</a>
+                                <a class="pill" href="catalogo.html?categoria=personalizada">Linea personalizada para regalos y fechas especiales</a>
+                                <a class="pill" href="catalogo.html?categoria=religiosa">Inspiracion religiosa con valor simbolico y espiritual</a>
+                            </div>
+                            <div class="hero-actions">
+                                <a class="cta primary" href="#lineas">Ver lineas</a>
+                                <a class="cta secondary" href="#contacto">Hablar con nosotros</a>
+                            </div>
+                        </div>
+                        <div class="hero-photo">
+                            <img src="images/Logo/Principal.jpeg" alt="Imagen principal de AMARTR3S" />
+                        </div>
+                    </section>
+
+                    <section class="panel-grid" id="nosotros">
+                        <article class="panel">
+                            <span class="section-tag">Esencia</span>
+                            <h3>Quienes somos</h3>
+                            <p>
+                                AMARTR3S es una empresa creativa y de innovacion social orientada al
+                                desarrollo de iniciativas con impacto social, ambiental y cultural,
+                                integrando arte, sostenibilidad y transformacion comunitaria.
+                            </p>
+                        </article>
+                        <article class="panel">
+                            <span class="section-tag">Mision y vision</span>
+                            <h3>Mision y vision</h3>
+                            <p>
+                                Mision: desarrollar iniciativas creativas y sostenibles que generen
+                                impacto social, cultural y ambiental, integrando arte, innovacion y
+                                participacion comunitaria como herramientas de transformacion
+                                territorial. Vision: consolidarse como referente en innovacion
+                                creativa y sostenibilidad a nivel local, nacional e internacional.
+                            </p>
+                        </article>
+                        <article class="panel">
+                            <span class="section-tag">Propuesta</span>
+                            <h3>Lo necesario, bien mostrado</h3>
+                            <p>
+                                La propuesta de valor de AMARTR3S une creatividad, educacion y
+                                sostenibilidad para convertir ideas en proyectos con valor humano,
+                                ambiental y cultural.
+                            </p>
+                        </article>
+                    </section>
+
+                    <section id="lineas">
+                        <div class="panel" style="margin-bottom: 1.2rem;">
+                            <span class="section-tag">Categorias principales</span>
+                            <h2 style="margin-bottom: 0.8rem; color: var(--forest);">Tres universos creados para emocionar, regalar y conectar</h2>
+                            <p>
+                                Cada linea de AMARTR3S tiene una esencia propia. Aqui el visitante
+                                puede descubrir rapidamente si busca arte sostenible, detalles
+                                personalizados o piezas de inspiracion religiosa.
+                            </p>
+                        </div>
+
+                        <div class="lines-grid">
+                            <a class="line-card line-link" href="catalogo.html?categoria=reciclarte">
+                                <img src="images/ReciclArte/Portada.jpeg" alt="Portada de ReciclArte" />
+                                <div class="line-body">
+                                    <span class="section-tag">Linea 01</span>
+                                    <h3>ReciclArte</h3>
+                                    <p>
+                                        La linea estrategica principal de AMARTR3S transforma
+                                        materiales reciclados en productos artisticos, utiles y
+                                        sostenibles. Convierte el reciclaje en una experiencia
+                                        cultural, decorativa y pedagogica.
+                                    </p>
+                                    <ul class="line-list">
+                                        <li>Regalos personalizados y decoracion de temporada</li>
+                                        <li>Piezas sostenibles hechas desde la economia circular</li>
+                                        <li>Talleres, experiencias y proyectos comunitarios</li>
+                                    </ul>
+                                    <div class="card-cta">Ver album completo</div>
+                                </div>
+                            </a>
+
+                            <a class="line-card line-link" href="catalogo.html?categoria=personalizada">
+                                <img src="images/Linea personalizada/Portada.jpeg" alt="Portada de linea personalizada" />
+                                <div class="line-body">
+                                    <span class="section-tag">Linea 02</span>
+                                    <h3>Linea personalizada</h3>
+                                    <p>
+                                        Categoria enfocada en detalles hechos por pedido, regalos para
+                                        momentos especiales y piezas pensadas para conectar con cada
+                                        historia personal o familiar.
+                                    </p>
+                                    <ul class="line-list">
+                                        <li>Detalles para celebraciones y fechas especiales</li>
+                                        <li>Piezas ajustadas al gusto y mensaje del cliente</li>
+                                        <li>Presentaciones con enfoque artesanal</li>
+                                    </ul>
+                                    <div class="card-cta">Ver album completo</div>
+                                </div>
+                            </a>
+
+                            <a class="line-card line-link" href="catalogo.html?categoria=religiosa">
+                                <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada de inspiracion religiosa" />
+                                <div class="line-body">
+                                    <span class="section-tag">Linea 03</span>
+                                    <h3>Inspiracion religiosa</h3>
+                                    <p>
+                                        Una linea pensada para expresar fe, espiritualidad y
+                                        recogimiento a traves de imagenes, detalles decorativos y
+                                        piezas con sentido simbolico y valor emocional.
+                                    </p>
+                                    <ul class="line-list">
+                                        <li>Imagenes decorativas y articulos de inspiracion religiosa</li>
+                                        <li>Detalles para espacios de fe y regalos con sentido</li>
+                                        <li>Piezas artesanales con identidad espiritual</li>
+                                    </ul>
+                                    <div class="card-cta">Ver album completo</div>
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section id="albumes">
+                        <div class="panel" style="margin-bottom: 1.2rem;">
+                            <span class="section-tag">Albumes</span>
+                            <h2 style="margin-bottom: 0.8rem; color: var(--forest);">Colecciones que invitan a mirar cada detalle con calma</h2>
+                            <p>
+                                Estas colecciones presentan una entrada visual a cada linea de la
+                                marca, destacando su atmosfera, sus acabados y el estilo artesanal
+                                que hace unica cada pieza.
+                            </p>
+                        </div>
+
+                        <div class="album-grid">
+                            <a class="gallery-card album-card album-link" href="catalogo.html?categoria=reciclarte">
+                                <div class="gallery-body">
+                                    <h3>Album ReciclArte</h3>
+                                    <p>Piezas sostenibles, decoracion y procesos creativos desde el reciclaje.</p>
+                                    <div class="album-count" data-category-count="reciclarte">Cargando imagenes...</div>
+                                    <div class="card-cta">Abrir pagina de categoria</div>
+                                </div>
+                                <div class="album-cover">
+                                    <img src="images/ReciclArte/Portada.jpeg" alt="Portada album ReciclArte" />
+                                </div>
+                                <div class="album-strip">
+                                    <img src="images/ReciclArte/IMG_1390.JPEG" alt="Muestra ReciclArte uno" />
+                                    <img src="images/ReciclArte/IMG_1323.JPEG" alt="Muestra ReciclArte dos" />
+                                    <img src="images/ReciclArte/IMG_1356.JPEG" alt="Muestra ReciclArte tres" />
+                                </div>
+                            </a>
+                            <a class="gallery-card album-card album-link" href="catalogo.html?categoria=personalizada">
+                                <div class="gallery-body">
+                                    <h3>Album Linea personalizada</h3>
+                                    <p>Regalos, detalles por pedido y piezas pensadas para momentos especiales.</p>
+                                    <div class="album-count" data-category-count="personalizada">Cargando imagenes...</div>
+                                    <div class="card-cta">Abrir pagina de categoria</div>
+                                </div>
+                                <div class="album-cover">
+                                    <img src="images/Linea personalizada/Portada.jpeg" alt="Portada album linea personalizada" />
+                                </div>
+                                <div class="album-strip">
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.40 PM (2).jpeg" alt="Muestra personalizada uno" />
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.43 PM.jpeg" alt="Muestra personalizada dos" />
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.18.00 PM.jpeg" alt="Muestra personalizada tres" />
+                                </div>
+                            </a>
+                            <a class="gallery-card album-card album-link" href="catalogo.html?categoria=religiosa">
+                                <div class="gallery-body">
+                                    <h3>Album Inspiracion religiosa</h3>
+                                    <p>Imagenes, detalles espirituales y piezas con presencia simbolica.</p>
+                                    <div class="album-count" data-category-count="religiosa">Cargando imagenes...</div>
+                                    <div class="card-cta">Abrir pagina de categoria</div>
+                                </div>
+                                <div class="album-cover">
+                                    <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada album inspiracion religiosa" />
+                                </div>
+                                <div class="album-strip">
+                                    <img src="images/Inspiracion religiosa/IMG_0183.JPEG" alt="Muestra religiosa uno" />
+                                    <img src="images/Inspiracion religiosa/IMG_0524.JPEG" alt="Muestra religiosa dos" />
+                                    <img src="images/Inspiracion religiosa/WhatsApp Image 2026-03-20 at 8.17.40 PM.jpeg" alt="Muestra religiosa tres" />
+                                </div>
+                            </a>
+                        </div>
+                    </section>
+
+                    <section class="contact-grid" id="contacto">
+                        <article class="contact-panel">
+                            <div class="contact-body">
+                                <span class="section-tag">Contacto</span>
+                                <h2 style="margin-bottom: 0.4rem; color: var(--forest);">Hablemos de tu pedido</h2>
+                                <p>
+                                    Si alguien llega a la pagina, aqui deberia encontrar rapido la
+                                    forma de escribirles y pedir informacion sobre productos,
+                                    personalizaciones o fechas especiales.
+                                </p>
+                                <a class="contact-chip" href="https://wa.me/573215254708">WhatsApp: 321 525 4708</a>
+                                <a class="contact-chip" href="https://wa.me/573217979522">WhatsApp: 321 797 9522</a>
+                                <a class="contact-chip" href="https://www.tiktok.com/@amartr3s3?is_from_webapp=1&amp;sender_device=pc">TikTok: @amartr3s3</a>
+                            </div>
+                        </article>
+
+                        <aside class="contact-panel">
+                            <div class="contact-body">
+                                <span class="section-tag">Aliados y alcance</span>
+                                <div class="contact-note">
+                                    AMARTR3S desarrolla alianzas con empresas, entidades publicas,
+                                    instituciones educativas, fundaciones y marcas interesadas en
+                                    sostenibilidad e innovacion cultural.
+                                </div>
+                                <div class="contact-note">
+                                    La proyeccion de la empresa apunta al escalamiento territorial,
+                                    al desarrollo de productos sostenibles comercializables y a
+                                    estrategias digitales con alto alcance cultural.
+                                </div>
+                            </div>
+                        </aside>
+                    </section>
+                </main>
+
+                <div class="footer-note">
+                    AMARTR3S | Catalogo digital listo para publicacion
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/catalog-data.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script>
+            (function () {
+                var categories = (window.AMARTR3S_DATA && window.AMARTR3S_DATA.categories) || {};
+                var counters = document.querySelectorAll("[data-category-count]");
+
+                counters.forEach(function (node) {
+                    var key = node.getAttribute("data-category-count");
+                    var itemCount = categories[key] && categories[key].items ? categories[key].items.length : 0;
+                    node.textContent = itemCount + " imagenes en carpeta";
+                });
+            })();
+        </script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

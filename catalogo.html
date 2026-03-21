@@ -232,19 +232,25 @@
             }
 
             .item-media {
+                position: relative;
                 display: block;
                 width: 100%;
-                padding: 0;
-                border: 0;
-                background: transparent;
                 cursor: zoom-in;
+                overflow: hidden;
+                text-align: left;
+            }
+
+            .item-media:focus-visible {
+                outline: 0;
+                box-shadow: inset 0 0 0 2px rgba(198, 221, 250, 0.72);
             }
 
             .item-card img {
                 width: 100%;
-                height: 16rem;
+                height: 18.5rem;
                 object-fit: cover;
                 display: block;
+                transition: transform 0.3s ease;
             }
 
             .item-media:hover img,
@@ -253,50 +259,64 @@
             }
 
             .item-body {
-                padding: 1.35rem;
+                position: absolute;
+                inset: auto 0 0 0;
+                padding: 2.8rem 1.2rem 1.15rem 1.2rem;
+                background: linear-gradient(180deg, rgba(8, 16, 30, 0) 0%, rgba(8, 16, 30, 0.74) 52%, rgba(8, 16, 30, 0.94) 100%);
+                text-align: left;
             }
 
             .item-index {
                 display: inline-block;
-                margin-bottom: 0.7rem;
-                color: var(--blue);
-                font-size: 0.78rem;
+                margin-bottom: 0.5rem;
+                color: rgba(198, 221, 250, 0.92);
+                font-size: 0.72rem;
                 font-weight: 800;
             }
 
             .item-card h3 {
-                margin-bottom: 0.7rem;
-                color: var(--navy);
-                font-size: 1rem;
+                margin-bottom: 0.4rem;
+                color: #f7fbff;
+                font-size: 1.02rem;
+                line-height: 1.15;
             }
 
             .item-summary {
                 margin: 0;
-                color: #4d5c72;
+                color: rgba(236, 243, 251, 0.9);
+                font-size: 0.92rem;
+                line-height: 1.6;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             .item-actions {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.75rem;
-                margin-top: 1rem;
+                display: grid;
+                grid-template-columns: auto minmax(0, 1fr);
+                align-items: start;
+                gap: 0.55rem;
+                padding: 0.9rem 1rem 1rem 1rem;
             }
 
             .item-view {
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                padding: 0.8rem 1rem;
+                min-height: 2.3rem;
+                padding: 0.62rem 0.85rem;
                 border-radius: 999px;
                 border: 1px solid rgba(24, 49, 83, 0.16);
                 background: rgba(24, 49, 83, 0.08);
                 color: var(--navy);
                 font-family: "Source Sans Pro", Helvetica, sans-serif;
-                font-size: 0.76rem;
+                font-size: 0.67rem;
                 font-weight: 800;
                 letter-spacing: 0.06em;
                 text-transform: uppercase;
                 cursor: pointer;
+                white-space: nowrap;
             }
 
             .item-view:hover,
@@ -305,26 +325,30 @@
             }
 
             .item-details {
-                margin-top: 1rem;
+                grid-column: 2;
+                margin-top: 0;
                 border-radius: 20px;
                 background: rgba(24, 49, 83, 0.05);
                 border: 1px dashed rgba(24, 49, 83, 0.18);
                 overflow: hidden;
+                min-width: 0;
             }
 
             .item-details summary {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 0.75rem;
-                padding: 1rem 1.15rem;
+                gap: 0.55rem;
+                min-height: 2.3rem;
+                padding: 0.62rem 0.85rem;
                 cursor: pointer;
                 color: var(--navy);
-                font-size: 0.82rem;
+                font-size: 0.67rem;
                 font-weight: 900;
                 font-family: "Source Sans Pro", Helvetica, sans-serif;
                 letter-spacing: 0.06em;
                 text-transform: uppercase;
+                white-space: nowrap;
             }
 
             .item-details summary::-webkit-details-marker {
@@ -334,14 +358,14 @@
             .item-details summary::after {
                 content: "+";
                 flex-shrink: 0;
-                width: 1.7rem;
-                height: 1.7rem;
+                width: 1.3rem;
+                height: 1.3rem;
                 border-radius: 999px;
                 background: rgba(24, 49, 83, 0.1);
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 line-height: 1;
             }
 
@@ -349,9 +373,17 @@
                 content: "-";
             }
 
+            .item-details[open] {
+                grid-column: 1 / -1;
+            }
+
+            .item-details[open] summary {
+                border-bottom: 1px dashed rgba(24, 49, 83, 0.18);
+            }
+
             .detail-points {
                 margin: 0;
-                padding: 0 1.2rem 1.15rem 2.2rem;
+                padding: 0.85rem 1rem 1rem 2rem;
             }
 
             .detail-points li {
@@ -371,6 +403,9 @@
                 padding: 1.2rem;
                 background: rgba(10, 18, 34, 0.74);
                 z-index: 1000;
+                overflow: auto;
+                overscroll-behavior: contain;
+                -webkit-overflow-scrolling: touch;
             }
 
             .modal-shell.active {
@@ -380,6 +415,7 @@
             .modal-panel {
                 width: min(1180px, 100%);
                 max-height: calc(100vh - 2.4rem);
+                max-height: calc(100dvh - 2.4rem);
                 display: grid;
                 grid-template-columns: 1.18fr 0.82fr;
                 overflow: hidden;
@@ -400,6 +436,7 @@
                 width: 100%;
                 height: 100%;
                 max-height: calc(100vh - 5rem);
+                max-height: calc(100dvh - 5rem);
                 object-fit: contain;
                 border-radius: 24px;
             }
@@ -408,6 +445,9 @@
                 padding: 1.8rem;
                 overflow: auto;
                 position: relative;
+                overscroll-behavior: contain;
+                -webkit-overflow-scrolling: touch;
+                touch-action: pan-y;
             }
 
             .modal-close {
@@ -460,6 +500,10 @@
                 font-size: 0.9rem;
             }
 
+            body.modal-open {
+                overflow: hidden;
+            }
+
             @media screen and (max-width: 1080px) {
                 .items-grid {
                     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -507,6 +551,46 @@
                 .hero-cover img {
                     height: 13rem;
                     min-height: 13rem;
+                }
+
+                .item-body {
+                    padding: 2.2rem 1rem 0.95rem 1rem;
+                }
+
+                .item-summary {
+                    -webkit-line-clamp: 3;
+                }
+
+                .item-actions {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 0.5rem;
+                    padding: 0.8rem 0.85rem 0.9rem 0.85rem;
+                }
+
+                .item-view,
+                .item-details summary {
+                    justify-content: center;
+                    padding: 0.62rem 0.72rem;
+                    font-size: 0.62rem;
+                }
+
+                .item-details {
+                    grid-column: auto;
+                }
+
+                .item-details[open] {
+                    grid-column: 1 / -1;
+                }
+
+                .modal-shell {
+                    padding: 0.5rem;
+                    align-items: stretch;
+                }
+
+                .modal-panel {
+                    max-height: calc(100vh - 1rem);
+                    max-height: calc(100dvh - 1rem);
+                    margin: auto 0;
                 }
             }
         </style>
@@ -625,8 +709,16 @@
             var modalPresentation = document.getElementById("modalPresentation");
             var modalCustomization = document.getElementById("modalCustomization");
             var modalNote = document.getElementById("modalNote");
+            var modalCopy = document.querySelector(".modal-copy");
+            var lockedScrollY = 0;
 
             function openModal(item, index) {
+                lockedScrollY = window.scrollY || window.pageYOffset;
+                document.body.classList.add("modal-open");
+                document.documentElement.style.overflow = "hidden";
+                document.body.style.position = "fixed";
+                document.body.style.top = -lockedScrollY + "px";
+                document.body.style.width = "100%";
                 modal.classList.add("active");
                 modal.setAttribute("aria-hidden", "false");
                 modalImage.src = item.file;
@@ -638,12 +730,20 @@
                 modalPresentation.textContent = item.presentation;
                 modalCustomization.textContent = item.customization;
                 modalNote.textContent = item.note;
+                modalCopy.scrollTop = 0;
+                modal.scrollTop = 0;
             }
 
             function closeModal() {
                 modal.classList.remove("active");
                 modal.setAttribute("aria-hidden", "true");
                 modalImage.src = "";
+                document.body.classList.remove("modal-open");
+                document.documentElement.style.overflow = "";
+                document.body.style.position = "";
+                document.body.style.top = "";
+                document.body.style.width = "";
+                window.scrollTo(0, lockedScrollY);
             }
 
             activeCatalog.items.forEach(function (item, index) {
@@ -651,7 +751,7 @@
                 article.className = "item-card";
 
                 article.innerHTML =
-                    '<button class="item-media" type="button" aria-label="Ampliar imagen de ' +
+                    '<div class="item-media" role="button" tabindex="0" aria-label="Ampliar imagen de ' +
                     item.name +
                     '">' +
                     '<img src="' +
@@ -659,7 +759,6 @@
                     '" alt="' +
                     item.name +
                     '" />' +
-                    "</button>" +
                     '<div class="item-body">' +
                     '<span class="item-index">Articulo ' +
                     String(index + 1).padStart(2, "0") +
@@ -670,11 +769,12 @@
                     '<p class="item-summary">' +
                     item.summary +
                     "</p>" +
+                    "</div>" +
+                    "</div>" +
                     '<div class="item-actions">' +
                     '<button class="item-view" type="button">Ampliar imagen</button>' +
-                    "</div>" +
                     '<details class="item-details">' +
-                    "<summary>Ver detalles del articulo</summary>" +
+                    "<summary>Ver detalles</summary>" +
                     '<ul class="detail-points">' +
                     "<li>" +
                     item.materials +
@@ -694,6 +794,13 @@
 
                 article.querySelector(".item-media").addEventListener("click", function () {
                     openModal(item, index);
+                });
+
+                article.querySelector(".item-media").addEventListener("keydown", function (event) {
+                    if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        openModal(item, index);
+                    }
                 });
 
                 article.querySelector(".item-view").addEventListener("click", function () {

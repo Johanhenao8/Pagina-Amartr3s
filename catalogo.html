@@ -180,7 +180,7 @@
             .hero p,
             .intro-card p,
             .item-card p,
-            .description-slot li {
+            .detail-points li {
                 color: #435063;
                 line-height: 1.9;
             }
@@ -223,7 +223,6 @@
 
             .item-card {
                 overflow: hidden;
-                cursor: pointer;
                 transition: transform 0.2s ease, box-shadow 0.2s ease;
             }
 
@@ -232,11 +231,25 @@
                 box-shadow: 0 22px 48px rgba(24, 49, 83, 0.16);
             }
 
+            .item-media {
+                display: block;
+                width: 100%;
+                padding: 0;
+                border: 0;
+                background: transparent;
+                cursor: zoom-in;
+            }
+
             .item-card img {
                 width: 100%;
                 height: 16rem;
                 object-fit: cover;
                 display: block;
+            }
+
+            .item-media:hover img,
+            .item-media:focus img {
+                transform: scale(1.02);
             }
 
             .item-body {
@@ -262,24 +275,91 @@
                 color: #4d5c72;
             }
 
-            .description-slot {
+            .item-actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.75rem;
                 margin-top: 1rem;
-                padding: 1rem 1rem 1rem 1.2rem;
+            }
+
+            .item-view {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.8rem 1rem;
+                border-radius: 999px;
+                border: 1px solid rgba(24, 49, 83, 0.16);
+                background: rgba(24, 49, 83, 0.08);
+                color: var(--navy);
+                font-family: "Source Sans Pro", Helvetica, sans-serif;
+                font-size: 0.76rem;
+                font-weight: 800;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+
+            .item-view:hover,
+            .item-view:focus {
+                background: rgba(24, 49, 83, 0.14);
+            }
+
+            .item-details {
+                margin-top: 1rem;
                 border-radius: 20px;
                 background: rgba(24, 49, 83, 0.05);
                 border: 1px dashed rgba(24, 49, 83, 0.18);
+                overflow: hidden;
             }
 
-            .description-slot h4 {
-                margin-bottom: 0.7rem;
+            .item-details summary {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.75rem;
+                padding: 1rem 1.15rem;
+                cursor: pointer;
                 color: var(--navy);
                 font-size: 0.82rem;
                 font-weight: 900;
+                font-family: "Source Sans Pro", Helvetica, sans-serif;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
             }
 
-            .description-slot ul {
+            .item-details summary::-webkit-details-marker {
+                display: none;
+            }
+
+            .item-details summary::after {
+                content: "+";
+                flex-shrink: 0;
+                width: 1.7rem;
+                height: 1.7rem;
+                border-radius: 999px;
+                background: rgba(24, 49, 83, 0.1);
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                line-height: 1;
+            }
+
+            .item-details[open] summary::after {
+                content: "-";
+            }
+
+            .detail-points {
                 margin: 0;
-                padding-left: 1rem;
+                padding: 0 1.2rem 1.15rem 2.2rem;
+            }
+
+            .detail-points li {
+                margin-bottom: 0.65rem;
+            }
+
+            .detail-points li:last-child {
+                margin-bottom: 0;
             }
 
             .modal-shell {
@@ -469,9 +549,8 @@
                         <span class="section-tag">Detalle por articulo</span>
                         <h2 id="introTitle" style="margin-bottom: 0.8rem; color: var(--navy);">Coleccion completa</h2>
                         <p id="introText">
-                            Cada foto tiene un bloque listo para que luego agreguemos nombre,
-                            materiales, medidas, precio, personalizacion o cualquier detalle
-                            comercial del articulo.
+                            Cada producto presenta una vista mas ligera y te permite desplegar
+                            sus detalles solo cuando quieras revisar mas informacion.
                         </p>
                     </section>
 
@@ -531,7 +610,7 @@
             document.getElementById("introText").textContent =
                 "Esta categoria incluye " +
                 activeCatalog.items.length +
-                " imagenes de detalle. Si editas las descripciones en assets/js/catalog-data.js, se actualizan en la tarjeta y en la vista ampliada.";
+                " productos con vista rapida y detalles desplegables para una navegacion mas fluida.";
             document.getElementById("heroImage").src = activeCatalog.cover;
             document.getElementById("heroImage").alt = "Portada " + activeCatalog.title;
 
@@ -570,16 +649,17 @@
             activeCatalog.items.forEach(function (item, index) {
                 var article = document.createElement("article");
                 article.className = "item-card";
-                article.tabIndex = 0;
-                article.setAttribute("role", "button");
-                article.setAttribute("aria-label", "Abrir detalle de " + item.name);
 
                 article.innerHTML =
+                    '<button class="item-media" type="button" aria-label="Ampliar imagen de ' +
+                    item.name +
+                    '">' +
                     '<img src="' +
                     item.file +
                     '" alt="' +
                     item.name +
                     '" />' +
+                    "</button>" +
                     '<div class="item-body">' +
                     '<span class="item-index">Articulo ' +
                     String(index + 1).padStart(2, "0") +
@@ -590,9 +670,12 @@
                     '<p class="item-summary">' +
                     item.summary +
                     "</p>" +
-                    '<div class="description-slot">' +
-                    "<h4>Descripcion base</h4>" +
-                    "<ul>" +
+                    '<div class="item-actions">' +
+                    '<button class="item-view" type="button">Ampliar imagen</button>' +
+                    "</div>" +
+                    '<details class="item-details">' +
+                    "<summary>Ver detalles del articulo</summary>" +
+                    '<ul class="detail-points">' +
                     "<li>" +
                     item.materials +
                     "</li>" +
@@ -606,18 +689,15 @@
                     item.note +
                     "</li>" +
                     "</ul>" +
-                    "</div>" +
+                    "</details>" +
                     "</div>";
 
-                article.addEventListener("click", function () {
+                article.querySelector(".item-media").addEventListener("click", function () {
                     openModal(item, index);
                 });
 
-                article.addEventListener("keydown", function (event) {
-                    if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        openModal(item, index);
-                    }
+                article.querySelector(".item-view").addEventListener("click", function () {
+                    openModal(item, index);
                 });
 
                 itemsGrid.appendChild(article);

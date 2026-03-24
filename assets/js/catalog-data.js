@@ -1,10 +1,10 @@
 (function () {
     // Edita nombres, resumenes y detalles desde este archivo para que se actualicen
     // las tarjetas del catalogo y la vista ampliada de cada imagen.
-    function buildItems(prefix, files, defaults, overrides) {
+    function buildItems(prefix, files, defaults, entries) {
         return files.map(function (file, index) {
             var filename = file.split("/").pop();
-            var custom = overrides[filename] || {};
+            var custom = entries[index] || {};
             var number = String(index + 1).padStart(2, "0");
 
             return {
@@ -73,7 +73,148 @@
                     customization: "Se puede ajustar color, mensaje, acabado o concepto visual segun el pedido.",
                     note: "Actualizar con medidas, tiempo de entrega y precio final."
                 },
-                {}
+                [
+                    {
+                        name: "ReciclArte | Jardin de color",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Brillo circular",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Relieve creativo",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Textura en vitrina",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Encuentro floral",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Destello artesanal",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Composicion decorativa",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Acabado multicolor",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Coleccion viva",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Inspiracion en relieve",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Juego de texturas",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Decoracion sostenible",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Contraste brillante",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Edicion floral",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Volumen creativo",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Diseno de temporada",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Pieza con identidad",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Arte en reciclaje",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Detalle luminoso",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Linea intervenida",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Color y memoria",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Transformacion util",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Ornamentacion creativa",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Presencia artesanal",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Edicion con relieve",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Composicion organica",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Diseno festivo",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Tonos de hogar",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Estilo reciclado",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Pieza para regalar",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    },
+                    {
+                        name: "ReciclArte | Escena decorativa",
+                        summary: "Pieza decorativa de ReciclArte elaborada a mano desde materiales recuperados, ideal para dar color y personalidad a cualquier espacio."
+                    },
+                    {
+                        name: "ReciclArte | Recuerdo sostenible",
+                        summary: "Creacion sostenible con acabados artesanales y relieve visual, pensada para regalar o exhibir como detalle unico."
+                    },
+                    {
+                        name: "ReciclArte | Volumen en color",
+                        summary: "Objeto intervenido con enfoque creativo y reutilizacion consciente, perfecto para ambientar mesas, repisas o rincones especiales."
+                    },
+                    {
+                        name: "ReciclArte | Acabado expresivo",
+                        summary: "Diseno artesanal de economia circular que combina textura, color y presencia decorativa en una sola pieza."
+                    },
+                    {
+                        name: "ReciclArte | Exhibicion artesanal",
+                        summary: "Propuesta ReciclArte hecha a mano para quienes buscan decoracion diferente, sostenible y con identidad visual."
+                    }
+                ]
             )
         },
         personalizada: {
@@ -104,7 +245,52 @@
                     customization: "Permite modificar colores, nombres, frases, empaques y estilo general.",
                     note: "Completar con opciones de tamano, precio y cantidad minima."
                 },
-                {}
+                [
+                    {
+                        name: "Personalizada | Mensaje especial",
+                        summary: "Detalle personalizado pensado para celebrar momentos importantes con nombres, mensajes o colores elegidos segun la ocasion."
+                    },
+                    {
+                        name: "Personalizada | Recuerdo a medida",
+                        summary: "Pieza por encargo con enfoque emotivo, ideal para aniversarios, fechas especiales o regalos con sentido personal."
+                    },
+                    {
+                        name: "Personalizada | Detalle con nombre",
+                        summary: "Creacion artesanal adaptable en mensaje y acabado, perfecta para convertir un recuerdo en un obsequio unico."
+                    },
+                    {
+                        name: "Personalizada | Regalo con dedicatoria",
+                        summary: "Diseno personalizado con presencia delicada y valor sentimental, pensado para sorprender y acompanar una celebracion."
+                    },
+                    {
+                        name: "Personalizada | Momento para celebrar",
+                        summary: "Detalle hecho a mano que puede ajustarse a la historia de quien lo recibe, logrando un regalo mas cercano y especial."
+                    },
+                    {
+                        name: "Personalizada | Diseno por encargo",
+                        summary: "Detalle personalizado pensado para celebrar momentos importantes con nombres, mensajes o colores elegidos segun la ocasion."
+                    },
+                    {
+                        name: "Personalizada | Sorpresa personalizada",
+                        summary: "Pieza por encargo con enfoque emotivo, ideal para aniversarios, fechas especiales o regalos con sentido personal."
+                    },
+                    {
+                        name: "Personalizada | Emocion hecha detalle",
+                        summary: "Creacion artesanal adaptable en mensaje y acabado, perfecta para convertir un recuerdo en un obsequio unico."
+                    },
+                    {
+                        name: "Personalizada | Recuerdo para fecha especial",
+                        summary: "Diseno personalizado con presencia delicada y valor sentimental, pensado para sorprender y acompanar una celebracion."
+                    },
+                    {
+                        name: "Personalizada | Edicion para regalar",
+                        summary: "Detalle hecho a mano que puede ajustarse a la historia de quien lo recibe, logrando un regalo mas cercano y especial."
+                    },
+                    {
+                        name: "Personalizada | Creacion con identidad",
+                        summary: "Detalle personalizado pensado para celebrar momentos importantes con nombres, mensajes o colores elegidos segun la ocasion."
+                    }
+                ]
             )
         },
         religiosa: {
@@ -136,7 +322,56 @@
                     customization: "Se puede adaptar color, mensaje, dedicatoria o acabado decorativo.",
                     note: "Agregar advocacion, tamano, precio y disponibilidad."
                 },
-                {}
+                [
+                    {
+                        name: "Inspiracion religiosa | Fe en detalle",
+                        summary: "Pieza de inspiracion religiosa elaborada para acompanar espacios de fe, recogimiento y serenidad en el hogar."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Devocion decorativa",
+                        summary: "Detalle espiritual con acabados artesanales, pensado para regalar en ocasiones de devocion, agradecimiento o bendicion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Inspiracion para el hogar",
+                        summary: "Creacion decorativa de significado religioso ideal para altares, recordatorios o rincones de oracion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Presencia espiritual",
+                        summary: "Objeto simbolico con presencia serena y mensaje de fe, perfecto para compartir como obsequio especial."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Recuerdo de bendicion",
+                        summary: "Pieza artesanal que une belleza decorativa y sentido espiritual para transmitir paz, esperanza y devocion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Luz de fe",
+                        summary: "Pieza de inspiracion religiosa elaborada para acompanar espacios de fe, recogimiento y serenidad en el hogar."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Simbolo de esperanza",
+                        summary: "Detalle espiritual con acabados artesanales, pensado para regalar en ocasiones de devocion, agradecimiento o bendicion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Devocion artesanal",
+                        summary: "Creacion decorativa de significado religioso ideal para altares, recordatorios o rincones de oracion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Detalle para oracion",
+                        summary: "Objeto simbolico con presencia serena y mensaje de fe, perfecto para compartir como obsequio especial."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Inspiracion de paz",
+                        summary: "Pieza artesanal que une belleza decorativa y sentido espiritual para transmitir paz, esperanza y devocion."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Recuerdo espiritual",
+                        summary: "Pieza de inspiracion religiosa elaborada para acompanar espacios de fe, recogimiento y serenidad en el hogar."
+                    },
+                    {
+                        name: "Inspiracion religiosa | Presencia con significado",
+                        summary: "Detalle espiritual con acabados artesanales, pensado para regalar en ocasiones de devocion, agradecimiento o bendicion."
+                    }
+                ]
             )
         }
     };

@@ -3,563 +3,19 @@
     <head>
         <title>AMARTR3S</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#08070a" />
         <meta
             name="description"
             content="AMARTR3S crea detalles personalizados, decoracion reciclada y articulos con inspiracion religiosa."
         />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-        <style>
-            :root {
-                --cream: #f7f1e8;
-                --sand: #dde6f2;
-                --earth: #41597a;
-                --forest: #183153;
-                --olive: #4d75a3;
-                --ink: #1f1d1a;
-                --muted: #6c665d;
-                --card: rgba(255, 255, 255, 0.82);
-                --line: rgba(24, 49, 83, 0.16);
-                --shadow: 0 24px 60px rgba(31, 29, 26, 0.14);
-                --radius: 28px;
-            }
-
-            html {
-                scroll-behavior: smooth;
-            }
-
-            body {
-                background:
-                    radial-gradient(circle at top left, rgba(65, 89, 122, 0.2), transparent 28%),
-                    radial-gradient(circle at right 20%, rgba(77, 117, 163, 0.16), transparent 26%),
-                    linear-gradient(180deg, #eef3f9 0%, #e5edf8 100%);
-                color: var(--ink);
-            }
-
-            body,
-            input,
-            textarea {
-                font-family: "Merriweather", Georgia, serif;
-            }
-
-            h1,
-            h2,
-            h3,
-            h4,
-            .brand,
-            .nav-links a,
-            .pill,
-            .cta,
-            .contact-chip,
-            .section-tag {
-                font-family: "Source Sans Pro", Helvetica, sans-serif;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-            }
-
-            a {
-                border-bottom: 0;
-            }
-
-            p {
-                text-align: left;
-            }
-
-            #wrapper {
-                background: transparent;
-            }
-
-            .site-shell {
-                width: min(1120px, calc(100% - 2.4rem));
-                margin: 0 auto;
-                padding: 1.2rem 0 4rem 0;
-            }
-
-            .topbar {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 1rem;
-                padding: 0.9rem 1.2rem;
-                margin-bottom: 1.2rem;
-                background: rgba(255, 255, 255, 0.62);
-                border: 1px solid rgba(24, 49, 83, 0.12);
-                border-radius: 999px;
-                backdrop-filter: blur(12px);
-                box-shadow: 0 12px 30px rgba(24, 49, 83, 0.08);
-            }
-
-            .brand {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.8rem;
-                color: var(--forest);
-                font-size: 1rem;
-                font-weight: 900;
-            }
-
-            .brand img {
-                width: 3.75rem;
-                height: 3.75rem;
-                object-fit: contain;
-                border-radius: 999px;
-                background: rgba(255, 255, 255, 0.94);
-                padding: 0.45rem;
-                border: 1px solid rgba(24, 49, 83, 0.14);
-                box-shadow: 0 12px 28px rgba(24, 49, 83, 0.2);
-            }
-
-            .nav-links {
-                display: flex;
-                gap: 1.2rem;
-                flex-wrap: wrap;
-                justify-content: flex-end;
-            }
-
-            .nav-links a {
-                color: var(--muted);
-                font-size: 0.82rem;
-                font-weight: 700;
-            }
-
-            .nav-links a:hover,
-            .nav-links a:focus {
-                color: var(--forest);
-            }
-
-            .hero {
-                display: grid;
-                grid-template-columns: 1.1fr 0.9fr;
-                gap: 1.5rem;
-                align-items: stretch;
-                margin-bottom: 1.6rem;
-            }
-
-            .hero-copy,
-            .hero-photo,
-            .panel,
-            .line-card,
-            .gallery-card,
-            .contact-panel {
-                background: var(--card);
-                border: 1px solid rgba(24, 49, 83, 0.12);
-                border-radius: var(--radius);
-                box-shadow: var(--shadow);
-            }
-
-            .hero-copy {
-                padding: 3rem;
-            }
-
-            .section-tag {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 1.2rem;
-                color: var(--olive);
-                font-size: 0.78rem;
-                font-weight: 700;
-            }
-
-            .section-tag:before {
-                content: "";
-                width: 2.8rem;
-                height: 1px;
-                background: rgba(77, 117, 163, 0.45);
-            }
-
-            .hero h1 {
-                margin-bottom: 1rem;
-                font-size: clamp(2.8rem, 7vw, 5.8rem);
-                line-height: 0.95;
-                color: var(--forest);
-            }
-
-            .hero-lead {
-                max-width: 36rem;
-                margin-bottom: 1.2rem;
-                font-size: 1.05rem;
-                line-height: 1.95;
-                color: #44566f;
-            }
-
-            .hero-points {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.8rem;
-                margin: 1.5rem 0;
-            }
-
-            .pill {
-                display: block;
-                padding: 1rem 1.05rem;
-                border: 1px solid rgba(24, 49, 83, 0.22);
-                border-radius: 20px;
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(226, 237, 250, 0.92));
-                color: var(--forest);
-                font-size: 0.75rem;
-                font-weight: 700;
-                line-height: 1.5;
-                box-shadow:
-                    inset 0 0 0 1px rgba(255, 255, 255, 0.72),
-                    0 14px 26px rgba(24, 49, 83, 0.08);
-            }
-
-            .pill:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 14px 28px rgba(24, 49, 83, 0.12);
-            }
-
-            .pill-title {
-                display: block;
-                margin-bottom: 0.2rem;
-                color: var(--forest);
-                font-size: 1rem;
-                font-weight: 900;
-            }
-
-            .pill-copy {
-                display: block;
-                color: #4d6280;
-                font-size: 0.68rem;
-                line-height: 1.55;
-            }
-
-            .hero-actions {
-                display: flex;
-                gap: 0.9rem;
-                flex-wrap: wrap;
-                margin-top: 1.8rem;
-            }
-
-            .cta {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                min-width: 12rem;
-                padding: 1rem 1.35rem;
-                border-radius: 999px;
-                font-size: 0.82rem;
-                font-weight: 800;
-            }
-
-            .cta.primary {
-                background: var(--forest);
-                color: #f8f5ef;
-            }
-
-            .cta.secondary {
-                background: transparent;
-                color: var(--forest);
-                border: 1px solid rgba(24, 49, 83, 0.2);
-            }
-
-            .hero-photo {
-                min-height: 100%;
-                overflow: hidden;
-            }
-
-            .hero-photo img {
-                width: 100%;
-                height: 100%;
-                min-height: 28rem;
-                object-fit: cover;
-                display: block;
-            }
-
-            .panel-grid,
-            .lines-grid,
-            .album-grid,
-            .contact-grid {
-                display: grid;
-                gap: 1.2rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .panel-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .panel {
-                padding: 1.7rem;
-            }
-
-            .panel h3,
-            .line-card h3,
-            .gallery-card h3,
-            .contact-panel h3 {
-                margin-bottom: 0.85rem;
-                color: var(--forest);
-                font-size: 1rem;
-            }
-
-            .panel p,
-            .line-card p,
-            .gallery-card p,
-            .contact-panel p {
-                margin: 0;
-                color: #4f473f;
-                line-height: 1.9;
-            }
-
-            .lines-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .line-card {
-                overflow: hidden;
-                border: 1px solid rgba(24, 49, 83, 0.18);
-                box-shadow:
-                    0 24px 48px rgba(24, 49, 83, 0.12),
-                    inset 0 0 0 1px rgba(255, 255, 255, 0.55);
-            }
-
-            .line-link,
-            .album-link {
-                display: block;
-                color: inherit;
-            }
-
-            .line-link:hover,
-            .album-link:hover {
-                transform: translateY(-4px);
-            }
-
-            .line-card img {
-                width: 100%;
-                height: 18rem;
-                object-fit: cover;
-                display: block;
-            }
-
-            .line-body,
-            .gallery-body,
-            .contact-body {
-                padding: 1.8rem;
-            }
-
-            .card-cta {
-                margin-top: 1rem;
-                color: var(--olive);
-                font-size: 0.82rem;
-                font-weight: 800;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-            }
-
-            .line-list {
-                margin: 1rem 0 0 0;
-                padding-left: 1.1rem;
-                color: #4f473f;
-            }
-
-            .line-list li {
-                margin-bottom: 0.5rem;
-            }
-
-            .album-grid {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-            }
-
-            .album-card {
-                overflow: hidden;
-                padding: 0;
-                background:
-                    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(234, 241, 250, 0.92));
-            }
-
-            .album-cover {
-                position: relative;
-                padding: 1rem 1rem 0 1rem;
-            }
-
-            .album-cover:after {
-                content: "";
-                position: absolute;
-                inset: 1rem 1rem 0 1rem;
-                background: linear-gradient(180deg, transparent 42%, rgba(14, 28, 52, 0.42) 100%);
-                border-radius: 26px;
-                pointer-events: none;
-            }
-
-            .album-cover img {
-                width: 100%;
-                height: 18rem;
-                border-radius: 26px;
-                object-fit: cover;
-                display: block;
-            }
-
-            .album-strip {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 0.65rem;
-                padding: 0 1rem 1rem 1rem;
-                margin-top: -2.2rem;
-                position: relative;
-                z-index: 2;
-            }
-
-            .album-strip img {
-                width: 100%;
-                height: 6.2rem;
-                border-radius: 18px;
-                object-fit: cover;
-                display: block;
-                border: 3px solid rgba(255, 255, 255, 0.92);
-                box-shadow: 0 12px 24px rgba(24, 49, 83, 0.14);
-            }
-
-            .album-count {
-                margin-top: 0.8rem;
-                color: var(--olive);
-                font-size: 0.82rem;
-                font-weight: 700;
-                letter-spacing: 0.04em;
-                text-transform: uppercase;
-            }
-
-            .album-card .gallery-body {
-                padding: 1.5rem 1.5rem 1rem 1.5rem;
-            }
-
-            .album-card h3 {
-                font-size: 1.15rem;
-            }
-
-            .album-card p {
-                color: #4d5d73;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1.1fr 0.9fr;
-            }
-
-            .contact-panel {
-                padding: 0;
-            }
-
-            .contact-body {
-                display: grid;
-                gap: 1rem;
-            }
-
-            .contact-chip {
-                display: inline-flex;
-                align-items: center;
-                padding: 0.95rem 1rem;
-                border-radius: 18px;
-                background: rgba(24, 49, 83, 0.06);
-                color: var(--forest);
-                font-size: 0.78rem;
-                font-weight: 800;
-            }
-
-            .contact-note {
-                padding: 1.4rem 1.6rem;
-                border-radius: 22px;
-                background: rgba(65, 89, 122, 0.08);
-                border: 1px dashed rgba(24, 49, 83, 0.2);
-                color: #5f5347;
-            }
-
-            .split-panel {
-                display: grid;
-                gap: 0.85rem;
-                margin-top: 0.15rem;
-            }
-
-            .split-note {
-                padding: 1rem 1rem 1.05rem 1rem;
-                border-radius: 22px;
-                border: 1px solid rgba(24, 49, 83, 0.14);
-                background: linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 245, 252, 0.9));
-            }
-
-            .split-note.vision {
-                border-color: rgba(77, 117, 163, 0.24);
-                background: linear-gradient(180deg, rgba(232, 241, 251, 0.96), rgba(223, 235, 250, 0.92));
-            }
-
-            .split-note h4 {
-                margin-bottom: 0.45rem;
-                color: var(--forest);
-                font-size: 0.84rem;
-                font-weight: 900;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-            }
-
-            .split-note p {
-                margin: 0;
-                color: #4b607b;
-                line-height: 1.82;
-            }
-
-            .footer-note {
-                padding-top: 1rem;
-                color: rgba(31, 29, 26, 0.58);
-                text-align: center;
-                font-size: 0.9rem;
-            }
-
-            .footer-actions {
-                display: flex;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-
-            @media screen and (max-width: 980px) {
-                .hero,
-                .contact-grid,
-                .lines-grid,
-                .panel-grid,
-                .album-grid {
-                    grid-template-columns: 1fr;
-                }
-
-                .hero-copy {
-                    padding: 2rem;
-                }
-
-                .hero-points {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            @media screen and (max-width: 640px) {
-                .site-shell {
-                    width: min(100% - 1.2rem, 1120px);
-                }
-
-                .topbar {
-                    border-radius: 26px;
-                    padding: 1rem;
-                    justify-content: center;
-                }
-
-                .nav-links {
-                    justify-content: center;
-                }
-
-                .hero h1 {
-                    font-size: 2.8rem;
-                }
-
-                .hero-photo img,
-                .line-card img,
-                .album-cover img {
-                    height: 13rem;
-                    min-height: 13rem;
-                }
-
-                .album-strip img {
-                    height: 4.8rem;
-                }
-            }
-        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="assets/css/theme.css" />
     </head>
     <body class="is-preload">
         <div id="wrapper">
@@ -569,7 +25,16 @@
                         <img src="images/Logo/AMARTR3S.png" alt="Logo AMARTR3S" />
                         <span>AMARTR3S</span>
                     </a>
-                    <nav class="nav-links">
+                    <button
+                        class="nav-toggle"
+                        type="button"
+                        aria-label="Abrir menu"
+                        aria-controls="navLinks"
+                        aria-expanded="false"
+                    >
+                        <span class="nav-toggle-icon"></span>
+                    </button>
+                    <nav class="nav-links" id="navLinks">
                         <a href="#nosotros">Nosotros</a>
                         <a href="#lineas">Lineas</a>
                         <a href="#albumes">Albumes</a>
@@ -657,7 +122,7 @@
                     <section id="lineas">
                         <div class="panel" style="margin-bottom: 1.2rem;">
                             <span class="section-tag">Categorias principales</span>
-                            <h2 style="margin-bottom: 0.8rem; color: var(--forest);">Tres universos creados para emocionar, regalar y conectar</h2>
+                            <h2 style="margin-bottom: 0.8rem; color: var(--gold-light);">Tres universos creados para emocionar, regalar y conectar</h2>
                             <p>
                                 Cada linea de AMARTR3S tiene una esencia propia. Aqui el visitante
                                 puede descubrir rapidamente si busca arte sostenible, detalles
@@ -667,7 +132,7 @@
 
                         <div class="lines-grid">
                             <a class="line-card line-link" href="catalogo.html?categoria=reciclarte">
-                                <img src="images/ReciclArte/Portada.jpeg" alt="Portada de ReciclArte" />
+                                <img src="images/ReciclArte/Portada.jpeg" alt="Portada de ReciclArte" loading="lazy" decoding="async" />
                                 <div class="line-body">
                                     <span class="section-tag">Linea 01</span>
                                     <h3>ReciclArte</h3>
@@ -687,7 +152,7 @@
                             </a>
 
                             <a class="line-card line-link" href="catalogo.html?categoria=personalizada">
-                                <img src="images/Linea personalizada/Portada.jpeg" alt="Portada de linea personalizada" />
+                                <img src="images/Linea personalizada/Portada.jpeg" alt="Portada de linea personalizada" loading="lazy" decoding="async" />
                                 <div class="line-body">
                                     <span class="section-tag">Linea 02</span>
                                     <h3>Linea personalizada</h3>
@@ -706,7 +171,7 @@
                             </a>
 
                             <a class="line-card line-link" href="catalogo.html?categoria=religiosa">
-                                <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada de inspiracion religiosa" />
+                                <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada de inspiracion religiosa" loading="lazy" decoding="async" />
                                 <div class="line-body">
                                     <span class="section-tag">Linea 03</span>
                                     <h3>Inspiracion religiosa</h3>
@@ -729,7 +194,7 @@
                     <section id="albumes">
                         <div class="panel" style="margin-bottom: 1.2rem;">
                             <span class="section-tag">Albumes</span>
-                            <h2 style="margin-bottom: 0.8rem; color: var(--forest);">Colecciones que invitan a mirar cada detalle con calma</h2>
+                            <h2 style="margin-bottom: 0.8rem; color: var(--gold-light);">Colecciones que invitan a mirar cada detalle con calma</h2>
                             <p>
                                 Estas colecciones presentan una entrada visual a cada linea de la
                                 marca, destacando su atmosfera, sus acabados y el estilo artesanal
@@ -746,12 +211,12 @@
                                     <div class="card-cta">Abrir pagina de categoria</div>
                                 </div>
                                 <div class="album-cover">
-                                    <img src="images/ReciclArte/Portada.jpeg" alt="Portada album ReciclArte" />
+                                    <img src="images/ReciclArte/Portada.jpeg" alt="Portada album ReciclArte" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="album-strip">
-                                    <img src="images/ReciclArte/IMG_1390.JPEG" alt="Muestra ReciclArte uno" />
-                                    <img src="images/ReciclArte/IMG_1323.JPEG" alt="Muestra ReciclArte dos" />
-                                    <img src="images/ReciclArte/IMG_1356.JPEG" alt="Muestra ReciclArte tres" />
+                                    <img src="images/ReciclArte/IMG_1390.JPEG" alt="Muestra ReciclArte uno" loading="lazy" decoding="async" />
+                                    <img src="images/ReciclArte/IMG_1323.JPEG" alt="Muestra ReciclArte dos" loading="lazy" decoding="async" />
+                                    <img src="images/ReciclArte/IMG_1356.JPEG" alt="Muestra ReciclArte tres" loading="lazy" decoding="async" />
                                 </div>
                             </a>
                             <a class="gallery-card album-card album-link" href="catalogo.html?categoria=personalizada">
@@ -762,12 +227,12 @@
                                     <div class="card-cta">Abrir pagina de categoria</div>
                                 </div>
                                 <div class="album-cover">
-                                    <img src="images/Linea personalizada/Portada.jpeg" alt="Portada album linea personalizada" />
+                                    <img src="images/Linea personalizada/Portada.jpeg" alt="Portada album linea personalizada" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="album-strip">
-                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.40 PM (2).jpeg" alt="Muestra personalizada uno" />
-                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.43 PM.jpeg" alt="Muestra personalizada dos" />
-                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.18.00 PM.jpeg" alt="Muestra personalizada tres" />
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.40 PM (2).jpeg" alt="Muestra personalizada uno" loading="lazy" decoding="async" />
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.17.43 PM.jpeg" alt="Muestra personalizada dos" loading="lazy" decoding="async" />
+                                    <img src="images/Linea personalizada/WhatsApp Image 2026-03-20 at 8.18.00 PM.jpeg" alt="Muestra personalizada tres" loading="lazy" decoding="async" />
                                 </div>
                             </a>
                             <a class="gallery-card album-card album-link" href="catalogo.html?categoria=religiosa">
@@ -778,12 +243,12 @@
                                     <div class="card-cta">Abrir pagina de categoria</div>
                                 </div>
                                 <div class="album-cover">
-                                    <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada album inspiracion religiosa" />
+                                    <img src="images/Inspiracion religiosa/Portada.jpeg" alt="Portada album inspiracion religiosa" loading="lazy" decoding="async" />
                                 </div>
                                 <div class="album-strip">
-                                    <img src="images/Inspiracion religiosa/IMG_0183.JPEG" alt="Muestra religiosa uno" />
-                                    <img src="images/Inspiracion religiosa/IMG_0524.JPEG" alt="Muestra religiosa dos" />
-                                    <img src="images/Inspiracion religiosa/WhatsApp Image 2026-03-20 at 8.17.40 PM.jpeg" alt="Muestra religiosa tres" />
+                                    <img src="images/Inspiracion religiosa/IMG_0183.JPEG" alt="Muestra religiosa uno" loading="lazy" decoding="async" />
+                                    <img src="images/Inspiracion religiosa/IMG_0524.JPEG" alt="Muestra religiosa dos" loading="lazy" decoding="async" />
+                                    <img src="images/Inspiracion religiosa/WhatsApp Image 2026-03-20 at 8.17.40 PM.jpeg" alt="Muestra religiosa tres" loading="lazy" decoding="async" />
                                 </div>
                             </a>
                         </div>
@@ -793,7 +258,7 @@
                         <article class="contact-panel">
                             <div class="contact-body">
                                 <span class="section-tag">Contacto</span>
-                                <h2 style="margin-bottom: 0.4rem; color: var(--forest);">Hablemos de tu pedido</h2>
+                                <h2 style="margin-bottom: 0.4rem; color: var(--gold-light);">Hablemos de tu pedido</h2>
                                 <p>
                                     Si ya viste una pieza que te gusto o tienes una idea para una
                                     fecha especial, escribenos. Te ayudamos a convertir tu pedido
@@ -834,12 +299,7 @@
         </div>
 
         <script src="assets/js/catalog-data.js"></script>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/jquery.scrollex.min.js"></script>
-        <script src="assets/js/jquery.scrolly.min.js"></script>
-        <script src="assets/js/browser.min.js"></script>
-        <script src="assets/js/breakpoints.min.js"></script>
-        <script src="assets/js/util.js"></script>
+        <script src="assets/js/site.js"></script>
         <script>
             (function () {
                 var categories = (window.AMARTR3S_DATA && window.AMARTR3S_DATA.categories) || {};
@@ -852,6 +312,5 @@
                 });
             })();
         </script>
-        <script src="assets/js/main.js"></script>
     </body>
 </html>

@@ -4,25 +4,25 @@
    ========================================================= */
 
 :root {
-    --black: #08070a;
-    --black-soft: #0f0d10;
-    --charcoal: #17141a;
-    --charcoal-2: #1f1a1f;
-    --line: rgba(212, 175, 55, 0.18);
-    --line-strong: rgba(212, 175, 55, 0.4);
+    --black: #11100f;
+    --black-soft: #1b1713;
+    --charcoal: #1d1812;
+    --charcoal-2: #241f18;
+    --line: rgba(201, 162, 39, 0.18);
+    --line-strong: rgba(201, 162, 39, 0.4);
 
-    --gold: #d4af37;
-    --gold-light: #f2dc9b;
-    --gold-deep: #9c7a24;
-    --gold-glow: rgba(212, 175, 55, 0.28);
+    --gold: #c9a227;
+    --gold-light: #e8d9aa;
+    --gold-deep: #8a6c1d;
+    --gold-glow: rgba(201, 162, 39, 0.16);
 
-    --ink: #f4efe4;
-    --muted: #b9b0a2;
-    --muted-2: #8b8377;
+    --ink: #ece5d5;
+    --muted: #b3aa97;
+    --muted-2: #857c6b;
 
     --card: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
     --shadow: 0 30px 70px rgba(0, 0, 0, 0.55);
-    --shadow-gold: 0 18px 40px rgba(212, 175, 55, 0.14);
+    --shadow-gold: 0 18px 40px rgba(201, 162, 39, 0.14);
     --radius: 26px;
     --radius-sm: 16px;
 }
@@ -40,9 +40,10 @@ html {
 body {
     margin: 0;
     background:
-        radial-gradient(circle at 12% 0%, rgba(212, 175, 55, 0.1), transparent 32%),
-        radial-gradient(circle at 88% 18%, rgba(212, 175, 55, 0.07), transparent 30%),
+        radial-gradient(ellipse at 18% -8%, rgba(201, 162, 39, 0.05), transparent 42%),
+        radial-gradient(ellipse at 85% 12%, rgba(201, 162, 39, 0.035), transparent 40%),
         linear-gradient(180deg, var(--black) 0%, var(--black-soft) 100%);
+    background-attachment: fixed;
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
@@ -190,7 +191,7 @@ body.modal-open {
     background: var(--black);
     padding: 0.3rem;
     border: 1px solid var(--line-strong);
-    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.05);
+    box-shadow: 0 0 0 4px rgba(201, 162, 39, 0.05);
 }
 
 .nav-links,
@@ -247,7 +248,7 @@ body.modal-open {
     flex-shrink: 0;
     border: 1px solid var(--line);
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.06);
+    background: rgba(201, 162, 39, 0.06);
     cursor: pointer;
     padding: 0;
 }
@@ -354,11 +355,13 @@ body.modal-open {
 .hero-copy:before {
     content: "";
     position: absolute;
-    top: -40%;
-    right: -20%;
-    width: 60%;
-    height: 140%;
-    background: radial-gradient(circle, var(--gold-glow), transparent 70%);
+    top: 0;
+    right: 0;
+    width: 55%;
+    height: 55%;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.35), transparent 65%);
+    filter: blur(70px);
+    opacity: 0.45;
     pointer-events: none;
 }
 
@@ -401,7 +404,7 @@ body.modal-open {
     padding: 1rem 1.1rem;
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
-    background: rgba(212, 175, 55, 0.045);
+    background: rgba(201, 162, 39, 0.045);
     color: var(--ink);
     font-size: 0.68rem;
     font-weight: 600;
@@ -415,7 +418,7 @@ body.modal-open {
     transform: translateY(-4px);
     border-color: var(--line-strong);
     box-shadow: var(--shadow-gold);
-    background: rgba(212, 175, 55, 0.09);
+    background: rgba(201, 162, 39, 0.09);
 }
 
 .pill-title {
@@ -467,7 +470,7 @@ body.modal-open {
 .cta.primary:hover,
 .back-link:hover {
     transform: translateY(-3px);
-    box-shadow: 0 22px 46px rgba(212, 175, 55, 0.26);
+    box-shadow: 0 22px 46px rgba(201, 162, 39, 0.26);
 }
 
 .cta.secondary,
@@ -479,7 +482,7 @@ body.modal-open {
 
 .cta.secondary:hover,
 .back-link.secondary:hover {
-    background: rgba(212, 175, 55, 0.08);
+    background: rgba(201, 162, 39, 0.08);
     transform: translateY(-3px);
 }
 
@@ -505,7 +508,7 @@ body.modal-open {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(8, 7, 10, 0) 40%, rgba(8, 7, 10, 0.55) 100%);
+    background: linear-gradient(180deg, rgba(17, 16, 15, 0) 40%, rgba(17, 16, 15, 0.55) 100%);
     pointer-events: none;
 }
 
@@ -565,12 +568,12 @@ body.modal-open {
     padding: 1rem 1rem 1.05rem 1rem;
     border-radius: var(--radius-sm);
     border: 1px solid var(--line);
-    background: rgba(212, 175, 55, 0.035);
+    background: rgba(201, 162, 39, 0.035);
 }
 
 .split-note.vision {
     border-color: var(--line-strong);
-    background: rgba(212, 175, 55, 0.06);
+    background: rgba(201, 162, 39, 0.06);
 }
 
 .split-note h4 {
@@ -684,7 +687,7 @@ body.modal-open {
     content: "";
     position: absolute;
     inset: 1rem 1rem 0 1rem;
-    background: linear-gradient(180deg, transparent 42%, rgba(8, 7, 10, 0.7) 100%);
+    background: linear-gradient(180deg, transparent 42%, rgba(17, 16, 15, 0.7) 100%);
     border-radius: 22px;
     pointer-events: none;
 }
@@ -713,7 +716,7 @@ body.modal-open {
     border-radius: 14px;
     object-fit: cover;
     display: block;
-    border: 2px solid rgba(212, 175, 55, 0.35);
+    border: 2px solid rgba(201, 162, 39, 0.35);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
 }
 
@@ -754,7 +757,7 @@ body.modal-open {
     align-items: center;
     padding: 1rem 1.1rem;
     border-radius: var(--radius-sm);
-    background: rgba(212, 175, 55, 0.06);
+    background: rgba(201, 162, 39, 0.06);
     border: 1px solid var(--line);
     color: var(--gold-light);
     font-size: 0.72rem;
@@ -764,14 +767,14 @@ body.modal-open {
 
 .contact-chip:hover {
     border-color: var(--line-strong);
-    background: rgba(212, 175, 55, 0.11);
+    background: rgba(201, 162, 39, 0.11);
     transform: translateY(-2px);
 }
 
 .contact-note {
     padding: 1.5rem 1.7rem;
     border-radius: var(--radius-sm);
-    background: rgba(212, 175, 55, 0.035);
+    background: rgba(201, 162, 39, 0.035);
     border: 1px dashed var(--line-strong);
     color: var(--muted);
 }
@@ -845,7 +848,7 @@ body.modal-open {
     position: absolute;
     inset: auto 0 0 0;
     padding: 1.1rem 0.95rem 0.65rem 0.95rem;
-    background: linear-gradient(180deg, rgba(8, 7, 10, 0) 45%, rgba(8, 7, 10, 0.55) 78%, rgba(8, 7, 10, 0.9) 100%);
+    background: linear-gradient(180deg, rgba(17, 16, 15, 0) 45%, rgba(17, 16, 15, 0.55) 78%, rgba(17, 16, 15, 0.9) 100%);
     text-align: left;
 }
 
@@ -891,7 +894,7 @@ body.modal-open {
     padding: 0.42rem 0.7rem;
     border-radius: 999px;
     border: 1px dashed var(--line-strong);
-    background: rgba(212, 175, 55, 0.06);
+    background: rgba(201, 162, 39, 0.06);
     color: var(--gold-light);
     font-size: 0.58rem;
     font-weight: 700;
@@ -903,14 +906,14 @@ body.modal-open {
 
 .item-view:hover,
 .item-view:focus {
-    background: rgba(212, 175, 55, 0.16);
+    background: rgba(201, 162, 39, 0.16);
 }
 
 .item-details {
     justify-self: end;
     margin-top: 0;
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.06);
+    background: rgba(201, 162, 39, 0.06);
     border: 1px dashed var(--line-strong);
     overflow: hidden;
     min-width: 0;
@@ -940,7 +943,7 @@ body.modal-open {
     width: 1rem;
     height: 1rem;
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.14);
+    background: rgba(201, 162, 39, 0.14);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -987,7 +990,7 @@ body.modal-open {
     align-items: center;
     justify-content: center;
     padding: 1.2rem;
-    background: rgba(4, 3, 5, 0.86);
+    background: rgba(17, 16, 15, 0.86);
     backdrop-filter: blur(6px);
     z-index: 1000;
     overflow: auto;
@@ -1056,7 +1059,7 @@ body.modal-open {
     height: 2.6rem;
     border: 1px solid var(--line);
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.08);
+    background: rgba(201, 162, 39, 0.08);
     color: var(--gold-light);
     font-size: 1.2rem;
     cursor: pointer;
@@ -1064,7 +1067,7 @@ body.modal-open {
 }
 
 .modal-close:hover {
-    background: rgba(212, 175, 55, 0.18);
+    background: rgba(201, 162, 39, 0.18);
     border-color: var(--line-strong);
 }
 
@@ -1086,7 +1089,7 @@ body.modal-open {
 .detail-box {
     padding: 1rem 1.1rem;
     border-radius: var(--radius-sm);
-    background: rgba(212, 175, 55, 0.035);
+    background: rgba(201, 162, 39, 0.035);
     border: 1px solid var(--line);
 }
 
@@ -1191,7 +1194,7 @@ body.modal-open {
     .nav-links a:hover,
     .nav-link:hover,
     .nav a:hover {
-        background: rgba(212, 175, 55, 0.06);
+        background: rgba(201, 162, 39, 0.06);
     }
 
     .nav-links a:after,
@@ -1231,6 +1234,12 @@ body.modal-open {
 
     .hero-copy {
         padding: 1.6rem;
+    }
+
+    .hero-copy:before {
+        width: 70%;
+        height: 35%;
+        opacity: 0.3;
     }
 
     .hero h1 {

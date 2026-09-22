@@ -137,12 +137,22 @@
             var modalPanel = document.querySelector(".modal-panel");
             var lockedScrollY = 0;
 
+            function getScrollbarWidth() {
+                return window.innerWidth - document.documentElement.clientWidth;
+            }
+
             function openModal(item, index) {
                 lockedScrollY = window.scrollY || window.pageYOffset;
+                var scrollbarWidth = getScrollbarWidth();
                 document.body.classList.add("modal-open");
                 document.documentElement.style.overflow = "hidden";
+                if (scrollbarWidth > 0) {
+                    document.documentElement.style.paddingRight = scrollbarWidth + "px";
+                }
                 document.body.style.position = "fixed";
                 document.body.style.top = -lockedScrollY + "px";
+                document.body.style.left = "0";
+                document.body.style.right = "0";
                 document.body.style.width = "100%";
                 modal.classList.add("active");
                 modal.setAttribute("aria-hidden", "false");
@@ -165,10 +175,16 @@
                 modalImage.src = "";
                 document.body.classList.remove("modal-open");
                 document.documentElement.style.overflow = "";
+                document.documentElement.style.paddingRight = "";
                 document.body.style.position = "";
                 document.body.style.top = "";
+                document.body.style.left = "";
+                document.body.style.right = "";
                 document.body.style.width = "";
+                var previousScrollBehavior = document.documentElement.style.scrollBehavior;
+                document.documentElement.style.scrollBehavior = "auto";
                 window.scrollTo(0, lockedScrollY);
+                document.documentElement.style.scrollBehavior = previousScrollBehavior;
             }
 
             activeCatalog.items.forEach(function (item, index) {

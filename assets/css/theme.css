@@ -64,6 +64,8 @@ h4 {
     font-weight: 600;
     color: var(--ink);
     margin: 0;
+    font-variant-numeric: lining-nums proportional-nums;
+    font-feature-settings: "lnum" 1;
 }
 
 a,
@@ -177,6 +179,7 @@ body.modal-open {
     color: var(--gold-light);
     font-size: 1rem;
     font-weight: 600;
+    font-variant-numeric: lining-nums proportional-nums;
 }
 
 .brand img {
@@ -980,7 +983,7 @@ body.modal-open {
 .modal-shell {
     position: fixed;
     inset: 0;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 1.2rem;
@@ -990,10 +993,14 @@ body.modal-open {
     overflow: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease;
 }
 
 .modal-shell.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-panel {
@@ -1007,6 +1014,12 @@ body.modal-open {
     background: var(--charcoal);
     border: 1px solid var(--line-strong);
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.7);
+    transform: scale(0.96);
+    transition: transform 0.22s ease;
+}
+
+.modal-shell.active .modal-panel {
+    transform: scale(1);
 }
 
 .modal-visual {
